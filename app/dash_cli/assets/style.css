@@ -1,0 +1,78 @@
+body {
+  background-image: url("back6.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 5px;
+}
+.top-div {
+  background-color: #4679a8;
+  border-radius: 10px;
+}
+h1 {
+  margin: 0px;
+  padding: 15px;
+  color: white;
+}
+.graph_div {
+  height: 800px;
+}
+
+h4 {
+  padding: 0px;
+}
+.gen_div {
+  display: grid;
+  grid-template-rows: min-content min-content max-content;
+}
+
+.button {
+  display: none;
+}
+.load-files {
+  display: none;
+}
+
+.control-div {
+  display: grid;
+  grid-template-columns: 1fr 1fr min-content min-content;
+}
+#files,
+#managers {
+  width: 40%;
+}
+
+.graphs {
+  display: block;
+}
+
+.nav-bar {
+  height: 55px;
+  vertical-align: middle;
+  text-align: center;
+}
+.nav-bar a,
+.vertline {
+  position: relative;
+  top: 20px;
+}
+.nav-bar a {
+  color: white;
+  border-radius: 10px;
+  font-family: "Times New Roman", Times, serif;
+  font-size: large;
+  padding: 10px;
+  margin-top: 15px;
+}
+.nav-bar a:link,
+.nav-bar a:visited {
+  text-decoration: none;
+}
+.nav-bar a:hover {
+  background-color: white;
+  color: #0e4375;
+}
+.vertline {
+  display: inline;
+  border-left: 1px solid rgb(232, 232, 240);
+  height: 30px;
+}

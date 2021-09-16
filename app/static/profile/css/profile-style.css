@@ -1,0 +1,229 @@
+body {
+  background-image: url("back7.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 5px;
+  color: rgb(255, 255, 255);
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.nav-bar {
+  height: 55px;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.nav-bar a,
+.vertline {
+  position: relative;
+  top: 20px;
+}
+
+.nav-bar a {
+  color: white;
+  border-radius: 10px;
+  font-family: "Times New Roman", Times, serif;
+  font-size: large;
+  padding: 10px;
+  margin-top: 15px;
+}
+
+.nav-bar a:link,
+.nav-bar a:visited {
+  text-decoration: none;
+}
+
+.nav-bar a:hover {
+  background-color: white;
+  color: #0e4375;
+}
+.vertline {
+  display: inline;
+  border-left: 1px solid rgb(232, 232, 240);
+  height: 30px;
+}
+
+.upload_photo_div {
+  text-align: center;
+}
+.photo {
+  height: 5cm;
+  text-align: center;
+}
+
+.photo > img {
+  border-radius: 30px;
+  height: 5cm;
+}
+
+.upload-photo-but {
+  background-color: darkblue;
+  height: 30px;
+  border-radius: 10px;
+  color: white;
+  font-family: "Times New Roman", Times, serif;
+  font-size: large;
+  cursor: pointer;
+}
+.upload-photo-but:hover {
+  background-color: white;
+  color: darkblue;
+}
+
+.for_rows {
+  display: grid;
+  grid-template-rows: min-content min-content max-content;
+}
+
+.gen_div {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+}
+.side-bar {
+  width: 300px;
+}
+
+.file-input {
+  display: none;
+}
+
+.gen_div_rep {
+  display: grid;
+  grid-template-rows: min-content 1fr;
+}
+
+.general-reports {
+  list-style-type: none;
+  padding: 0px;
+}
+.general-reports li {
+  display: grid;
+  grid-template-columns: min-content min-content;
+  margin-top: 5px;
+  margin-left: 35px;
+  height: 30px;
+  vertical-align: middle;
+}
+
+#reportname,
+#reportname1 {
+  margin-left: 15px;
+  vertical-align: middle;
+  width: max-content;
+}
+
+.delete-div {
+  display: inline-block;
+  padding: 0px;
+}
+
+.delete-div,
+.delete-div form,
+.delete-div button {
+  height: 24px;
+}
+
+.delete-div form {
+  padding: 0px;
+}
+
+.file-input {
+  display: none;
+}
+
+.delete-img {
+  height: 24px;
+  padding: 0px;
+}
+
+#id {
+  display: none;
+}
+
+.upload_div {
+  height: 45px;
+}
+
+.but-for-delete-item {
+  padding: 0px;
+  border: 0px;
+  cursor: pointer;
+}
+
+.upload-rep-but {
+  background-color: darkblue;
+  height: 30px;
+  border-radius: 10px;
+  color: white;
+  font-family: "Times New Roman", Times, serif;
+  font-size: large;
+  cursor: pointer;
+}
+
+.upload-rep-but:hover {
+  background-color: white;
+  color: darkblue;
+}
+
+.cols {
+  display: grid;
+  grid-template-columns: 210px 1fr 1fr 1fr;
+}
+
+.prof_urls p {
+  margin: 1px;
+  margin-left: 30px;
+  padding: 10px;
+  border-radius: 7px;
+  font-family: "Times New Roman", Times, serif;
+  font-size: large;
+  background-image: linear-gradient(
+    to right,
+    rgba(74, 64, 218, 0.575),
+    rgba(69, 145, 207, 0.274)
+  );
+}
+
+.gen-reps,
+.cli-reps {
+  border: 1px dashed lightgrey;
+  border-radius: 15px;
+  width: 90%;
+}
+
+.flashed {
+  text-align: center;
+  margin-left: 30px;
+  font-size: large;
+  border-radius: 6px;
+  vertical-align: middle;
+  padding: 10px;
+}
+
+.flashed.succes,
+.flashed.succes-load-cli-rep,
+.flashed.succes-load-gen-rep,
+.flashed.deleted_gen,
+.flashed.deleted_cli {
+  background-color: green;
+  border: 1px black solid;
+}
+.flashed.error,
+.flashed.error-rep-load,
+.flashed.error-rep-loading-size,
+.flashed.del_rep_error_gen,
+.flashed.del_rep_error_cli {
+  background-color: red;
+  border: 1px gray solid;
+  color: black;
+}
+.flashed.alert_gen,
+.flashed.alert_cli {
+  background-color: yellow;
+  border: 1px gray solid;
+  color: black;
+}

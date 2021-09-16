@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/static/favicon.png" type="image/png" />
+    <link
+      rel="stylesheet"
+      href="/static/profile/css/profile-style.css"
+      type="text/css"
+    />
+    <title>{{ title }}</title>
+  </head>
+  <body>
+    <div class="for_rows">
+      <div class="nav-bar">
+        <a href="{{ url_for('.profile', user_id=user_id) }}">Reports</a>
+        <div class="vertline"></div>
+        <a href="/dash2">Manager Efficiency</a>
+        <div class="vertline"></div>
+        <a href="/dash-cli">Client reports</a>
+        <div class="vertline"></div>
+        <a href="/dash">General reports</a>
+        <div class="vertline"></div>
+        <a href="{{ url_for('security.logout') }}">Logout</a>
+        {% if current_user.has_role('admin') %}
+        <div class="vertline"></div>
+        <a href="{{ url_for('admin.index') }}">Admin</a>
+        {% endif %}
+      </div>
+      <div class="gen_div">
+        <div class="side-bar">
+          <div class="prof_urls">
+            <div class="photo">
+              {% if image %}
+              <img src="data:;base64,{{ image }}" />
+              {% endif %}
+            </div>
+            <div class="upload_photo_div">
+              <form
+                action="{{ url_for('.upload') }}"
+                method="post"
+                enctype="multipart/form-data"
+              >
+                <button
+                  class="upload-photo-but"
+                  type="button"
+                  title="Upload your photo"
+                  onclick="document.getElementById('upload_photo').click()"
+                >
+                  Load your photo
+                </button>
+                <input
+                  type="file"
+                  id="upload_photo"
+                  name="upload_file"
+                  class="file-input"
+                  onchange="this.form.submit()"
+                />
+              </form>
+            </div>
+            {% for cat, msg in get_flashed_messages(True) %} {% if cat ==
+            "succes" or cat == "error" %}
+            <div id="fl" class="flashed {{cat}}">{{ msg }}</div>
+            {% endif %} {% endfor %}
+            <p style="text-align: center; font-size: x-large">Personal data:</p>
+            <p>Name: {{ username }} {{ surname }}</p>
+            <p>Email: {{ email }}</p>
+          </div>
+        </div>
+        <div class="dashboard">
+          <div class="gen_div_rep">
+            <div class="top-row">
+              <div class="upload_div">
+                <form
+                  action="{{ url_for('.load_report') }}"
+                  method="post"
+                  enctype="multipart/form-data"
+                >
+                  <button
+                    class="upload-rep-but"
+                    type="button"
+                    onclick="document.getElementById('upload_report').click()"
+                    title="Upload reports"
+                  >
+                    Load report
+                  </button>
+                  <input
+                    type="file"
+                    name="upload_report"
+                    id="upload_report"
+                    title="Load Report"
+                    class="file-input"
+                    onchange="this.form.submit()"
+                  />
+                </form>
+              </div>
+            </div>
+            <div class="cols">
+              <div></div>
+              <div class="gen-reps">
+                <p style="text-align: center; font-size: x-large">
+                  <a href="/dash/">General reports</a>
+                </p>
+                <hr width="90%" />
+                <ul class="general-reports">
+                  {% for r in reps %}
+                  <li>
+                    <span class="delete-div"
+                      ><form
+                        action="{{ url_for('.delete_report') }}"
+                        method="post"
+                      >
+                        <input
+                          type="hidden"
+                          id="id"
+                          name="id"
+                          required
+                          value="{{ r.value }}"
+                        />
+                        <button
+                          onclick="return confirm('Are you sure you want to delete this report?');"
+                          title="Delete Report"
+                          class="but-for-delete-item"
+                        >
+                          <img
+                            src="/static/profile/del1.png"
+                            alt="Delete"
+                            class="delete-img"
+                          />
+                        </button></form></span
+                    ><span id="reportname">{{ r.filename }}</span>
+                  </li>
+                  {% endfor %} {% for cat, msg in get_flashed_messages(True) %}
+                  {% if cat == "deleted_gen" or cat == "del_rep_error_gen" or
+                  cat == "succes-load-gen-rep" or cat == "alert_gen" %}
+                  <div id="fl" class="flashed {{cat}}">{{ msg }}</div>
+                  {% endif %} {% endfor %}
+                </ul>
+              </div>
+              <div class="cli-reps">
+                <p style="text-align: center; font-size: x-large">
+                  <a href="/dash2/">Client reports</a>
+                </p>
+                <hr width="90%" />
+                <ul class="general-reports">
+                  {% for r in reps_by_cli %}
+                  <li>
+                    <span class="delete-div"
+                      ><form
+                        action="{{ url_for('.delete_report_by_client') }}"
+                        method="post"
+                      >
+                        <input
+                          type="hidden"
+                          id="id"
+                          name="id"
+                          required
+                          value="{{ r.value }}"
+                        />
+                        <button
+                          onclick="return confirm('Are you sure you want to delete this report?');"
+                          title="Delete Report"
+                          class="but-for-delete-item"
+                        >
+                          <img
+                            src="/static/profile/del1.png"
+                            alt="Delete"
+                            class="delete-img"
+                          />
+                        </button></form></span
+                    ><span id="reportname1">{{ r.filename }}</span>
+                  </li>
+                  {% endfor %} {% for cat, msg in get_flashed_messages(True) %}
+                  {% if cat == "deleted_cli" or cat == "del_rep_error_cli" or
+                  cat == "succes-load-cli-rep" or cat == "alert_cli" %}
+                  <div id="fl" class="flashed {{cat}}">{{ msg }}</div>
+                  {% endif %} {% endfor %}
+                </ul>
+              </div>
+              <div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../../static/profile/js/del_flashes.js"></script>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+{% extends "login-base.html" %}
+{% block title_login %}
+<title>Login</title>
+{% endblock %}
+
+{% block content %}
+<div class="rows_teml">
+    <div></div>
+    <div class="gen_form">
+        <div></div>
+        <div>
+        {% from "security/_macros.html" import render_field_with_errors, render_field %}
+        {% include "security/_messages.html" %}
+        <h1>Login</h1>
+        <form action="{{ url_for_security('login') }}" method="POST" name="login_user_form" class="log_form">
+        {{ login_user_form.hidden_tag() }}
+        {{ render_field_with_errors(login_user_form.email) }}
+        {{ render_field_with_errors(login_user_form.password) }}
+        {{ render_field_with_errors(login_user_form.remember) }}
+        {{ render_field(login_user_form.next) }}
+        {{ render_field(login_user_form.submit) }}
+        </form>
+        <hr align="left" width="360px">
+        <p>
+            <a href="{{url_for_security('register')}}" class="register_link">Register</a>
+            <a href="{{url_for_security('forgot_password')}}" class="register_link">Reset password</a>
+        </p>
+        </div>
+        <div></div>
+    </div>
+    <div></div>
+</div>
+<script>
+    setTimeout(function(){
+        var box = document.getElementsByTagName("ul")[0];
+        var oppArray = ["0.9", "0.8", "0.7", "0.6", "0.5", "0.4", "0.3", "0.2", "0.1", "0"];
+        var x = 0;
+        (function next() {
+            box.style.opacity = oppArray[x];
+            if(++x < oppArray.length) {
+                setTimeout(next, 100); //depending on how fast you want to fade
+            }
+        })();
+    }, 2000);
+
+    setTimeout(function(){
+        document.getElementsByTagName("ul")[0].style.display = "None";
+    }, 3100);
+</script>
+{% endblock %}

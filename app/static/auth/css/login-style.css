@@ -1,0 +1,79 @@
+body{
+    background-image: url('back1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: rgb(8, 3, 73);
+}
+
+h1{
+    text-align: center;
+}
+
+.register_link{
+
+    border: 1px lightseagreen solid;
+    border-radius: 2px;
+
+}
+.register_link:hover{
+
+    background-color: lightyellow;
+
+}
+.log_form>input{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+
+}
+.log_form>p>input{
+    width: 250px;
+
+}
+
+.log_form>p>label{
+    display: inline-block;
+    width: 125px;
+    
+}
+.log_form>p{
+    text-align: left;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+}
+
+.log_form>p>input[type=checkbox]{
+    width: 20px;
+
+}
+.log_form>p>input[type=submit]{
+    width: 125px;
+    text-align: center;
+
+}
+.rows_teml{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.gen_form{
+    display: grid;
+    grid-template-columns: 2fr 425px 2fr;
+
+}
+ul{
+    list-style-type: none;
+}
+li{
+    background: yellow;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid black;
+    font-size: medium;
+}
+ul.flashes{
+    padding: 0px;
+    margin: 0px;
+}
+a:visited{
+    color: rgb(170, 14, 14);
+}

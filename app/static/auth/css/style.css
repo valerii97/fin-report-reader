@@ -1,0 +1,20 @@
+.gen_div{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+.prof_urls>ul{
+    list-style-type: none;
+}
+.prof_urls>ul>li{
+    text-align: center;
+    display: inline-block;
+    font-size: xx-large;
+    background-color: lightsalmon;
+    height: 30px;
+    padding: 10px;
+
+}
+
+div{
+    border: 2px solid green;
+}
