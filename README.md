@@ -1,4 +1,4 @@
-# Fin Report Reader
+# Financial Report Reader
 
 This app is made for the visualizing of a certain type reports.
 Front-end is done using Plotly Dash, back-end is done using Flask framework.
